@@ -22,8 +22,8 @@ let resultadosDasRodadas = [];
 let opcoesComputador = [];
 let resultadoDaMelhorDeTres = 0;
 
-let pontosJogador;
-let pontosComputador;
+let pontosJogador = 0;
+let pontosComputador = 0;
 
 let melhorDeTres = arrayDeOpcoesJogador => {
     arrayDeOpcoesJogador.forEach((opcaoJogador, index) => {
