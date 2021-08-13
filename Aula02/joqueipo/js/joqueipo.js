@@ -3,68 +3,94 @@ let opcao2Jogador = prompt("Escolha 1 opcao entre 'pedra', 'papel', 'tesoura':")
 let opcao3Jogador = prompt("Escolha 1 opcao entre 'pedra', 'papel', 'tesoura':");
 let opcoesJogador = [];
 opcoesJogador.push(opcoao1Jogador, opcao2Jogador, opcao3Jogador);
-let rodada1 = document.getElementById("rodada1")
+
+let resultadoDaRodada1 = document.getElementById("rodada1");
+let resultadoDaRodada2 = document.getElementById("rodada2");
+let resultadoDaRodada3 = document.getElementById("rodada3");
+
+let escolhaJogador1 = document.getElementById("escolhaJogador1");
+let escolhaJogador2 = document.getElementById("escolhaJogador2");
+let escolhaJogador3 = document.getElementById("escolhaJogador3");
+
+let escolhaComputador1 = document.getElementById("escolhaComputador1");
+let escolhaComputador2 = document.getElementById("escolhaComputador2");
+let escolhaComputador3 = document.getElementById("escolhaComputador3");
+
+let resultadoDaMelhorDeTres2 = document.getElementById("resultadoDaMelhorDeTres");
+
+let resultadosDasRodadas = [];
+let opcoesComputador = [];
+let resultadoDaMelhorDeTres = 0;
 
 let pontosJogador;
 let pontosComputador;
 
 let melhorDeTres = arrayDeOpcoesJogador => {
     arrayDeOpcoesJogador.forEach((opcaoJogador, index) => {
-    let opcaoComputador;
     let numero = Math.floor(Math.random() * 3);
     if (numero <= 0) {
-        opcaoComputador = "pedra";
+        opcoesComputador.push("pedra");
     } else if (numero <= 1) {
-        opcaoComputador = "papel";
+        opcoesComputador.push("papel");
     } else {
-        opcaoComputador = "tesoura";
+        opcoesComputador.push("tesoura");
     }
 
-    console.log(`----------\nRodada ${index+1}\nJogador: ${opcaoJogador} X Computador: ${opcaoComputador}`);
-
-    if(opcaoComputador == "pedra") {
+    if(opcoesComputador[index] == "pedra") {
         if(opcaoJogador == "pedra") {
-            rodada1.innerHTML = "Empatou";
+            resultadosDasRodadas.push("Empatou");
         } else if(opcaoJogador == "tesoura") {
             pontosComputador++;
-            rodada1.innerHTML = "Computador ganhou";
+            resultadosDasRodadas.push("Computador ganhou");
         } else {
             pontosJogador++;
-            rodada1.innerHTML = "Jogador ganhou";
+            resultadosDasRodadas.push("Jogador ganhou");
         }
-    } else if(opcaoComputador == "papel") {
+    } else if(opcoesComputador[index] == "papel") {
         if(opcaoJogador == "papel") {
-            rodada1.innerHTML = "Empatou";
+            resultadosDasRodadas.push("Empatou");
         } else if(opcaoJogador == "pedra") {
             pontosComputador++;
-            rodada1.innerHTML = "Computador ganhou";
+            resultadosDasRodadas.push("Computador ganhou");
         } else {
             pontosJogador++;
-            rodada1.innerHTML = "Jogador ganhou";
+            resultadosDasRodadas.push("Jogador ganhou");
         }
     } else {
         if(opcaoJogador == "tesoura") {
-            console.log("Empatou");
+            resultadosDasRodadas.push("Empatou");
         } else if(opcaoJogador == "papel") {
             pontosComputador++;
-            rodada1.innerHTML = "Computador ganhou";
+            resultadosDasRodadas.push("Computador ganhou");
         } else {
             pontosJogador++;
-            rodada1.innerHTML = "Jogador ganhou";
+            resultadosDasRodadas.push("Jogador ganhou");
         }
     }
 }
 )
-    console.log(`----------\nResultado da melhor de tres:`);
 
     if(pontosJogador > pontosComputador) {
-        console.log("O jogador ganhou!")
+        resultadoDaMelhorDeTres = "O jogador ganhou!";
     } else if(pontosComputador > pontosJogador) {
-        console.log("O computador ganhou!")
+        resultadoDaMelhorDeTres = "O computador ganhou!";
     } else {
-        console.log("Empatou!")
+        resultadoDaMelhorDeTres = "Empatou!";
     }
 }
 
-
 melhorDeTres(opcoesJogador);
+
+resultadoDaRodada1.innerHTML = resultadosDasRodadas[0];
+resultadoDaRodada2.innerHTML = resultadosDasRodadas[1];
+resultadoDaRodada3.innerHTML = resultadosDasRodadas[2];
+
+escolhaJogador1.innerHTML = opcoesJogador[0];
+escolhaJogador2.innerHTML = opcoesJogador[1];
+escolhaJogador3.innerHTML = opcoesJogador[2];
+
+escolhaComputador1.innerHTML = opcoesComputador[0];
+escolhaComputador2.innerHTML = opcoesComputador[1];
+escolhaComputador3.innerHTML = opcoesComputador[2];
+
+resultadoDaMelhorDeTres2.innerHTML = resultadoDaMelhorDeTres;
