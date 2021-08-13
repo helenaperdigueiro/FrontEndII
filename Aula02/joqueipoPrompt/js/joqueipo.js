@@ -12,20 +12,6 @@ while(tresCertas < 3) {
     }
 }
 
-let resultadoDaRodada1 = document.getElementById("rodada1");
-let resultadoDaRodada2 = document.getElementById("rodada2");
-let resultadoDaRodada3 = document.getElementById("rodada3");
-
-let escolhaJogador1 = document.getElementById("escolhaJogador1");
-let escolhaJogador2 = document.getElementById("escolhaJogador2");
-let escolhaJogador3 = document.getElementById("escolhaJogador3");
-
-let escolhaComputador1 = document.getElementById("escolhaComputador1");
-let escolhaComputador2 = document.getElementById("escolhaComputador2");
-let escolhaComputador3 = document.getElementById("escolhaComputador3");
-
-let resultadoDaMelhorDeTres2 = document.getElementById("resultadoDaMelhorDeTres");
-
 let resultadosDasRodadas = [];
 let opcoesComputador = [];
 let resultadoDaMelhorDeTres = 0;
@@ -36,14 +22,9 @@ let pontosComputador = 0;
 let melhorDeTres = arrayDeOpcoesJogador => {
 
     arrayDeOpcoesJogador.forEach((opcaoJogador, index) => {
-        let numero = Math.floor(Math.random() * 3);
-        if (numero <= 0) {
-            opcoesComputador.push("pedra");
-        } else if (numero <= 1) {
-            opcoesComputador.push("papel");
-        } else {
-            opcoesComputador.push("tesoura");
-        }
+        const options = ["pedra", "papel", "tesoura"];
+        let opcaoComputador = array => array[Math.floor(Math.random() * options.length)];
+        opcoesComputador.push(opcaoComputador(options));
 
         if (opcoesComputador[index] == "pedra") {
             if (opcaoJogador == "pedra") {
@@ -91,16 +72,16 @@ let melhorDeTres = arrayDeOpcoesJogador => {
 
 melhorDeTres(opcoesJogador);
 
-resultadoDaRodada1.innerHTML = resultadosDasRodadas[0];
-resultadoDaRodada2.innerHTML = resultadosDasRodadas[1];
-resultadoDaRodada3.innerHTML = resultadosDasRodadas[2];
+document.getElementById("rodada1").innerHTML = resultadosDasRodadas[0];
+document.getElementById("rodada2").innerHTML = resultadosDasRodadas[1];
+document.getElementById("rodada3").innerHTML = resultadosDasRodadas[2];
 
-escolhaJogador1.innerHTML = opcoesJogador[0];
-escolhaJogador2.innerHTML = opcoesJogador[1];
-escolhaJogador3.innerHTML = opcoesJogador[2];
+document.getElementById("escolhaJogador1").innerHTML = opcoesJogador[0];
+document.getElementById("escolhaJogador2").innerHTML = opcoesJogador[1];
+document.getElementById("escolhaJogador3").innerHTML = opcoesJogador[2];
 
-escolhaComputador1.innerHTML = opcoesComputador[0];
-escolhaComputador2.innerHTML = opcoesComputador[1];
-escolhaComputador3.innerHTML = opcoesComputador[2];
+document.getElementById("escolhaComputador1").innerHTML = opcoesComputador[0];
+document.getElementById("escolhaComputador2").innerHTML = opcoesComputador[1];
+document.getElementById("escolhaComputador3").innerHTML = opcoesComputador[2];
 
-resultadoDaMelhorDeTres2.innerHTML = resultadoDaMelhorDeTres;
+document.getElementById("resultadoDaMelhorDeTres").innerHTML = resultadoDaMelhorDeTres;
