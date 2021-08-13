@@ -3,6 +3,7 @@ let opcao2Jogador = prompt("Escolha 1 opcao entre 'pedra', 'papel', 'tesoura':")
 let opcao3Jogador = prompt("Escolha 1 opcao entre 'pedra', 'papel', 'tesoura':");
 let opcoesJogador = [];
 opcoesJogador.push(opcoao1Jogador, opcao2Jogador, opcao3Jogador);
+let rodada1 = document.getElementById("rodada1")
 
 let pontosJogador;
 let pontosComputador;
@@ -23,33 +24,33 @@ let melhorDeTres = arrayDeOpcoesJogador => {
 
     if(opcaoComputador == "pedra") {
         if(opcaoJogador == "pedra") {
-            console.log("Empatou");
+            rodada1.innerHTML = "Empatou";
         } else if(opcaoJogador == "tesoura") {
             pontosComputador++;
-            console.log("Computador ganhou");
+            rodada1.innerHTML = "Computador ganhou";
         } else {
             pontosJogador++;
-            console.log("Jogador ganhou");
+            rodada1.innerHTML = "Jogador ganhou";
         }
     } else if(opcaoComputador == "papel") {
         if(opcaoJogador == "papel") {
-            console.log("Empatou");
+            rodada1.innerHTML = "Empatou";
         } else if(opcaoJogador == "pedra") {
             pontosComputador++;
-            console.log("Computador ganhou");
+            rodada1.innerHTML = "Computador ganhou";
         } else {
             pontosJogador++;
-            console.log("Jogador ganhou");
+            rodada1.innerHTML = "Jogador ganhou";
         }
     } else {
         if(opcaoJogador == "tesoura") {
             console.log("Empatou");
         } else if(opcaoJogador == "papel") {
             pontosComputador++;
-            console.log("Computador ganhou");
+            rodada1.innerHTML = "Computador ganhou";
         } else {
             pontosJogador++;
-            console.log("Jogador ganhou");
+            rodada1.innerHTML = "Jogador ganhou";
         }
     }
 }
