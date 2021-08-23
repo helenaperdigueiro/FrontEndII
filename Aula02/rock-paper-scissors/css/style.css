@@ -1,0 +1,27 @@
+#container {
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+
+#btns {
+    text-align: center;
+}
+
+#score {
+    display: flex;
+    justify-content: space-around;
+}
+
+#img {
+    display: flex;
+    justify-content: space-around;
+}
+
+#whoWon {
+    text-align: center;
+}
+
+h1 {
+ font-size: 1em;
+}
+
